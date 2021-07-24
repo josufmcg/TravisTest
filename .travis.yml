@@ -1,0 +1,7 @@
+language: csharp
+solution: TravistTest.sln
+mono: none
+dotnet: 2.2.107
+script:
+  - dotnet restore
+  - dotnet test
