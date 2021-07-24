@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace Arithmetics.Tests
@@ -16,8 +17,15 @@ namespace Arithmetics.Tests
         public void TestSubs()
         {
             Arithmetic arithmetic = new Arithmetic();
-            int result = arithmetic.Subs(10, 100);
-            Assert.Equal(-90, result);
+            int result = arithmetic.Subs(100, 10);
+            Assert.Equal(90, result);
+        }
+
+        [Fact]
+        public void TestSubs_WithNegativeResult()
+        {
+            Arithmetic arithmetic = new Arithmetic();
+            Assert.Throws<InvalidOperationException>(() => arithmetic.Subs(100, 110));
         }
     }
 }
